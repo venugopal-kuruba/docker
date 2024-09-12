@@ -1,9 +1,6 @@
 FROM python:3.11   #downloads from the dockerhub
 LABEL support="kurubavenugopal" email="kurubavenugopal1435@gmail.com"
 WORKDIR /app        #copy the files of main.py,requriments ,templates etc.. in workdir /app.
-ENV AWS_DEFAULT_REGION=us-east-1
-ENV AWS_ACCESS_KEY_ID=
-ENV AWS_SECRET_ACCESS_KEY=
 ARG T_VERSION=1.9.5
 COPY requriments.txt requriments.txt
 COPY templates templates
