@@ -1,6 +1,6 @@
-FROM python:3.11   #downloads from the dockerhub
+FROM python:3.11   
 LABEL author="sreeharsha Verrapalli" email="sreeharshav@gmail.com"
-WORKDIR /app        #copy the files of main.py,requriments ,templates etc.. in workdir /app.
+WORKDIR /app        
 ARG T_VERSION=1.9.5
 COPY requriments.txt requriments.txt
 COPY templates templates
