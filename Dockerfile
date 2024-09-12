@@ -1,12 +1,13 @@
-FROM ubuntu:22.04   #downloads from the dockerhub
+FROM python:3.11   #downloads from the dockerhub
 LABEL support="kurubavenugopal" email="kurubavenugopal1435@gmail.com"
 WORKDIR /app        #copy the files of main.py,requriments ,templates etc.. in workdir /app.
 ENV AWS_DEFAULT_REGION=us-east-1
-ENV AWS_ACCESS_KEY_ID=AKIA6GBMHSALI4YTYBXG
-ENV AWS_SECRET_ACCESS_KEY=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
-ARG T_VERSION=1.9.1
+ENV AWS_ACCESS_KEY_ID=
+ENV AWS_SECRET_ACCESS_KEY=
+ARG T_VERSION=1.9.5
 COPY requriments.txt requriments.txt
-RUN apt-get update && apt-get install -y nginx net-tools curl jq
-
-
-
+COPY templates templates
+RUN apt-get update && apt-get install -y nginx net-tools curl jq tree unzip
+RUN pip install -r requirements.txt
+ADD https://releases.hashicorp.com/terraform/${T_VERSION}/terraform_${T_VERSION}_linux_amd64.zip terraform _${T_VERSION}_linux_amd64.zip
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0","--port", "80"] 
