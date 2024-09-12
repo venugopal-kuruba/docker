@@ -1,5 +1,5 @@
 FROM python:3.11   #downloads from the dockerhub
-LABEL support="kurubavenugopal" email="kurubavenugopal1435@gmail.com"
+LABEL author="sreeharsha Verrapalli" email="sreeharshav@gmail.com"
 WORKDIR /app        #copy the files of main.py,requriments ,templates etc.. in workdir /app.
 ARG T_VERSION=1.9.5
 COPY requriments.txt requriments.txt
